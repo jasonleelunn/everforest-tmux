@@ -146,7 +146,7 @@ build_status_module() {
     if [ "$status_connect_separator" = "yes" ]
     then
       local show_left_separator="#[fg=$color,bg=$thm_bg2,nobold,nounderscore,noitalics]$status_left_separator"
-      local show_right_separator="#[fg=$thm_bg2,bg=$thm_gray,nobold,nounderscore,noitalics]$status_right_separator"
+      local show_right_separator="#[fg=$thm_bg2,bg=$thm_bg2,nobold,nounderscore,noitalics]$status_right_separator"
 
     else
       local show_left_separator="#[fg=$color,bg=$thm_bg_dim,nobold,nounderscore,noitalics]$status_left_separator"
