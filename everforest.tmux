@@ -323,7 +323,7 @@ main() {
 
   # --------=== Modes
   #
-  setw clock-mode-colour "${thm_blue}"
+  setw clock-mode-colour "${thm_aqua}"
   setw mode-style "fg=${thm_red} bg=${thm_bg3} bold"
 
   tmux "${tmux_commands[@]}"
