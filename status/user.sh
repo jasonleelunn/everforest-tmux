@@ -4,7 +4,7 @@ show_user() {
   local color=$(get_tmux_option "@catppuccin_user_color" "$thm_aqua")
   local text=$(get_tmux_option "@catppuccin_user_text" "#(whoami)")
 
-  local module=$( build_status_module "$index" "$icon" "$color" "$text" )
+  local module=$(build_status_module "$index" "$icon" "$color" "$text")
 
   echo "$module"
 }
