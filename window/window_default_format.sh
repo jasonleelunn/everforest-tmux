@@ -2,8 +2,8 @@ show_window_default_format() {
   local number="#I"
   local color="$thm_blue"
   local background="$thm_bg2"
-  local text="$(get_tmux_option "@catppuccin_window_default_text" "#W")"
-  local fill="$(get_tmux_option "@catppuccin_window_default_fill" "number")" # number, all, none
+  local text="$(get_tmux_option "@everforest_window_default_text" "#W")"
+  local fill="$(get_tmux_option "@everforest_window_default_fill" "number")" # number, all, none
 
   local default_window_format=$(build_window_format "$number" "$color" "$background" "$text" "$fill")
 

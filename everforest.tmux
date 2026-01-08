@@ -34,15 +34,15 @@ setw() {
 }
 
 build_window_icon() {
-  local window_status_icon_enable=$(get_tmux_option "@catppuccin_window_status_icon_enable" "yes")
+  local window_status_icon_enable=$(get_tmux_option "@everforest_window_status_icon_enable" "yes")
 
-  local custom_icon_window_last=$(get_tmux_option "@catppuccin_icon_window_last" "󰖰")
-  local custom_icon_window_current=$(get_tmux_option "@catppuccin_icon_window_current" "󰖯")
-  local custom_icon_window_zoom=$(get_tmux_option "@catppuccin_icon_window_zoom" "󰁌")
-  local custom_icon_window_mark=$(get_tmux_option "@catppuccin_icon_window_mark" "󰃀")
-  local custom_icon_window_silent=$(get_tmux_option "@catppuccin_icon_window_silent" "󰂛")
-  local custom_icon_window_activity=$(get_tmux_option "@catppuccin_icon_window_activity" "󰖲")
-  local custom_icon_window_bell=$(get_tmux_option "@catppuccin_icon_window_bell" "󰂞")
+  local custom_icon_window_last=$(get_tmux_option "@everforest_icon_window_last" "󰖰")
+  local custom_icon_window_current=$(get_tmux_option "@everforest_icon_window_current" "󰖯")
+  local custom_icon_window_zoom=$(get_tmux_option "@everforest_icon_window_zoom" "󰁌")
+  local custom_icon_window_mark=$(get_tmux_option "@everforest_icon_window_mark" "󰃀")
+  local custom_icon_window_silent=$(get_tmux_option "@everforest_icon_window_silent" "󰂛")
+  local custom_icon_window_activity=$(get_tmux_option "@everforest_icon_window_activity" "󰖲")
+  local custom_icon_window_bell=$(get_tmux_option "@everforest_icon_window_bell" "󰂞")
 
   if [ "$window_status_icon_enable" = "yes" ]; then
     # #!~[*-]MZ
@@ -238,7 +238,7 @@ main() {
 
   # NOTE: Pulling in the selected theme by the theme that's being set as local
   # variables.
-  # shellcheck source=catppuccin-frappe.tmuxtheme
+  # shellcheck source=everforest-dark-hard.tmuxtheme
   # https://github.com/dylanaraps/pure-sh-bible#parsing-a-keyval-file
   while IFS='=' read -r key val; do
     # Skip over lines containing comments.
@@ -272,11 +272,11 @@ main() {
 
   # --------=== Statusline
 
-  local window_left_separator=$(get_tmux_option "@catppuccin_window_left_separator" "█")
-  local window_right_separator=$(get_tmux_option "@catppuccin_window_right_separator" "█")
-  local window_middle_separator=$(get_tmux_option "@catppuccin_window_middle_separator" "█ ")
-  local window_number_position=$(get_tmux_option "@catppuccin_window_number_position" "left") # right, left
-  local window_status_enable=$(get_tmux_option "@catppuccin_window_status_enable" "no")       # right, left
+  local window_left_separator=$(get_tmux_option "@everforest_window_left_separator" "█")
+  local window_right_separator=$(get_tmux_option "@everforest_window_right_separator" "█")
+  local window_middle_separator=$(get_tmux_option "@everforest_window_middle_separator" "█ ")
+  local window_number_position=$(get_tmux_option "@everforest_window_number_position" "left") # right, left
+  local window_status_enable=$(get_tmux_option "@everforest_window_status_enable" "no")       # right, left
 
   local window_format=$(load_modules "window_default_format")
   local window_current_format=$(load_modules "window_current_format")
@@ -284,16 +284,16 @@ main() {
   setw window-status-format "$window_format"
   setw window-status-current-format "$window_current_format"
 
-  local status_left_separator=$(get_tmux_option "@catppuccin_status_left_separator" "")
-  local status_right_separator=$(get_tmux_option "@catppuccin_status_right_separator" "█")
-  local status_right_separator_inverse=$(get_tmux_option "@catppuccin_status_right_separator_inverse" "no")
-  local status_connect_separator=$(get_tmux_option "@catppuccin_status_connect_separator" "yes")
-  local status_fill=$(get_tmux_option "@catppuccin_status_fill" "icon")
+  local status_left_separator=$(get_tmux_option "@everforest_status_left_separator" "")
+  local status_right_separator=$(get_tmux_option "@everforest_status_right_separator" "█")
+  local status_right_separator_inverse=$(get_tmux_option "@everforest_status_right_separator_inverse" "no")
+  local status_connect_separator=$(get_tmux_option "@everforest_status_connect_separator" "yes")
+  local status_fill=$(get_tmux_option "@everforest_status_fill" "icon")
 
-  local status_modules_right=$(get_tmux_option "@catppuccin_status_modules_right" "directory session")
+  local status_modules_right=$(get_tmux_option "@everforest_status_modules_right" "directory session")
   local loaded_modules_right=$(load_modules "$status_modules_right")
 
-  local status_modules_left=$(get_tmux_option "@catppuccin_status_modules_left" "")
+  local status_modules_left=$(get_tmux_option "@everforest_status_modules_left" "")
   local loaded_modules_left=$(load_modules "$status_modules_left")
 
   set status-left "$loaded_modules_left"
