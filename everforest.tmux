@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 PLUGIN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 get_tmux_option() {
@@ -17,17 +18,16 @@ get_tmux_option() {
 
   else
     echo "$default"
-
   fi
 }
 
-set() {
+set_option() {
   local option=$1
   local value=$2
   tmux_commands+=(set-option -gq "$option" "$value" ";")
 }
 
-setw() {
+set_window_option() {
   local option=$1
   local value=$2
   tmux_commands+=(set-window-option -gq "$option" "$value" ";")
@@ -251,24 +251,24 @@ main() {
   done <"${PLUGIN_DIR}/everforest-${theme}.tmuxtheme"
 
   # status
-  set status "on"
-  set status-bg "${thm_bg_dim}"
-  set status-justify "left"
-  set status-left-length "100"
-  set status-right-length "100"
+  set_option status "on"
+  set_option status-bg "${thm_bg_dim}"
+  set_option status-justify "left"
+  set_option status-left-length "100"
+  set_option status-right-length "100"
 
   # messages
-  set message-style "fg=${thm_aqua},bg=${thm_bg2},align=centre"
-  set message-command-style "fg=${thm_aqua},bg=${thm_bg2},align=centre"
+  set_option message-style "fg=${thm_aqua},bg=${thm_bg2},align=centre"
+  set_option message-command-style "fg=${thm_aqua},bg=${thm_bg2},align=centre"
 
   # panes
-  set pane-border-style "fg=${thm_bg2}"
-  set pane-active-border-style "fg=${thm_blue}"
+  set_option pane-border-style "fg=${thm_bg2}"
+  set_option pane-active-border-style "fg=${thm_blue}"
 
   # windows
-  setw window-status-activity-style "fg=${thm_fg},bg=${thm_bg_dim},none"
-  setw window-status-separator ""
-  setw window-status-style "fg=${thm_fg},bg=${thm_bg_dim},none"
+  set_window_option window-status-activity-style "fg=${thm_fg},bg=${thm_bg_dim},none"
+  set_window_option window-status-separator ""
+  set_window_option window-status-style "fg=${thm_fg},bg=${thm_bg_dim},none"
 
   # --------=== Statusline
 
@@ -281,8 +281,8 @@ main() {
   local window_format=$(load_modules "window_default_format")
   local window_current_format=$(load_modules "window_current_format")
 
-  setw window-status-format "$window_format"
-  setw window-status-current-format "$window_current_format"
+  set_window_option window-status-format "$window_format"
+  set_window_option window-status-current-format "$window_current_format"
 
   local status_left_separator=$(get_tmux_option "@everforest_status_left_separator" "")
   local status_right_separator=$(get_tmux_option "@everforest_status_right_separator" "█")
@@ -296,13 +296,13 @@ main() {
   local status_modules_left=$(get_tmux_option "@everforest_status_modules_left" "")
   local loaded_modules_left=$(load_modules "$status_modules_left")
 
-  set status-left "$loaded_modules_left"
-  set status-right "$loaded_modules_right"
+  set_option status-left "$loaded_modules_left"
+  set_option status-right "$loaded_modules_right"
 
   # --------=== Modes
-  #
-  setw clock-mode-colour "${thm_aqua}"
-  setw mode-style "fg=${thm_red} bg=${thm_bg3} bold"
+
+  set_window_option clock-mode-colour "${thm_aqua}"
+  set_window_option mode-style "fg=${thm_red} bg=${thm_bg3} bold"
 
   tmux "${tmux_commands[@]}"
 }
