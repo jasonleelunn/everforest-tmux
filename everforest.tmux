@@ -258,8 +258,8 @@ main() {
   set_option status-right-length "100"
 
   # messages
-  set_option message-style "fg=${thm_aqua},bg=${thm_bg2},align=centre"
-  set_option message-command-style "fg=${thm_aqua},bg=${thm_bg2},align=centre"
+  set_option message-style "fg=${thm_aqua},bg=${thm_bg2},fill=${thm_bg2},align=left"
+  set_option message-command-style "fg=${thm_aqua},bg=${thm_bg2},fill=${thm_bg2},align=left"
 
   # panes
   set_option pane-border-style "fg=${thm_bg2}"
