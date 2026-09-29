@@ -284,7 +284,7 @@ main() {
   set_window_option window-status-format "$window_format"
   set_window_option window-status-current-format "$window_current_format"
 
-  local status_left_separator=$(get_tmux_option "@everforest_status_left_separator" "")
+  local status_left_separator=$(get_tmux_option "@everforest_status_left_separator" "█")
   local status_right_separator=$(get_tmux_option "@everforest_status_right_separator" "█")
   local status_right_separator_inverse=$(get_tmux_option "@everforest_status_right_separator_inverse" "no")
   local status_connect_separator=$(get_tmux_option "@everforest_status_connect_separator" "yes")
