@@ -6,7 +6,7 @@ show_pomodoro() {
   local index=$1
   local icon color text module script command
   local quote="'\\''"
-  icon=$(get_tmux_option "@everforest_pomodoro_icon" "🍅")
+  icon=$(get_tmux_option "@everforest_pomodoro_icon" "󰔛")
   color=$(get_tmux_option "@everforest_pomodoro_color" "$thm_red")
   text=$(get_tmux_option "@everforest_pomodoro_text" "{status}")
 
